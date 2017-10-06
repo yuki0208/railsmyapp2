@@ -1,0 +1,41 @@
+<h2><%= @post.title %></h2>
+<p><%= simple_format @post.body %></p>
+
+<h3>Comments</h3>
+
+<% if @post.comments.any? %>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <% if comment.persisted? %>
+        <li>
+  	  <%= comment.commenter %>さん:
+	  <%= comment.body %>
+  	  <%= link_to 'x',
+            post_comment_path(@post,comment),
+            method: :delete,
+            class: 'command',
+            data: { confirm: 'Sure?' } %>
+        </li>
+      <% end %> 
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for([@post, @post.comments.build]) do |f| %>
+<%= @comment.errors.full_messages.join("\n") if @comment.present? %>
+<p>
+	<%= f.label :commenter, "commenter" %><br/>
+	<%= f.text_field :commenter, placeholder: 'enter your name' %>
+</p>
+
+<p>
+	<%= f.label :body, "comment" %><br/>
+  <%= f.text_field :body, placeholder: 'enter comment' %>
+</p>
+
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+<%= link_to "Posts Index", root_path %>
