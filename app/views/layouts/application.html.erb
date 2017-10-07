@@ -1,33 +1,16 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>Railsmyapp</title>
-    <%= csrf_meta_tags %>
+    <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="nabar-inner">
-        <div class="container">
-          <%= link_to "MY BLOG", 'home', id: "logo" %>
-          <div class="list-nav">
-            <nav>
-            <ul>
-              <li><%= link_to "Sign in", static_pages_siginin_path %></li>
-              <li><%= link_to "Help", static_pages_help_path %></li>
-              <li><%= link_to "Home", root_path %></li>
-            </ul>
-            </nav>
-          </div> 
-        </div>
-      </div>
-   </header>
-     <div class="container">
-       <%= yield %>
-     </div>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

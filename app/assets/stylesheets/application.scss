@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  padding-top: 60px; 
+  padding-top: 60px;
 }
 
 section {
@@ -20,11 +20,11 @@ textarea {
 
 ul {
   padding-top: 30px;
-  text-align: right; 
+  text-align: right;
 }
 
-li {  
-  display: inline; 
+li {
+  display: inline;
   padding: 10px;
   list-style: none;
 }
@@ -33,16 +33,11 @@ li {
 .center {
   text-align: center;
   margin-top: 50px;
+  h1 {
+    margin-bottom: 50px;
+  }
 }
 
-.center h1 {
-  margin-bottom: 50px;
-}
-
-.logo {
-  text-align: center;
-}
- 
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,4 +84,3 @@ p {
   color: #fff;
   text-decoration: none;
 }
-
