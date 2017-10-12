@@ -1,7 +1,6 @@
 <% provide(:title, 'Home') %>
-<div class="center hero-unit">
+<div class="center jumbotron">
  <%= image_tag('logo.png') %>
   <h1>Welcome to the Sample App</h1>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  <%= link_to "Sign up now!", new_user_path, class: "btn btn-large btn-primary" %>
 </div>
-
