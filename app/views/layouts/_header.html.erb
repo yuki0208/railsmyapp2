@@ -5,8 +5,8 @@
       <div class="list-nav">
         <nav>
           <ul class="nav pull-right navbar-nav">
-            <li><%= link_to "Help", help_path %></li>
             <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Help", help_path %></li>
             <% if signed_in? %>
               <li><%= link_to "Users", '#' %></li>
               <li id="fat-menu" class="dropdown">
