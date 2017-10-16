@@ -139,7 +139,7 @@ input {
   height: auto !important;
 }
 
-/* form */
+/* forms */
 
 #error_explanation {
   color: #f00;
@@ -154,3 +154,31 @@ input {
   @extend .has-error;
 }
 
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+ li {
+   overflow: auto;
+   padding: 10px 0;
+   border-top: 1px solid $gray-lighter;
+   &:last-child {
+   border-bottom: 1px sold $gray-lighter;
+    }
+  }
+}
