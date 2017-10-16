@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :account_activations, only: [:edit]
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
 
   root 'static_pages#home'
   get '/', to: 'static_pages#home'
