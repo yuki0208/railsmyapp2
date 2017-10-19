@@ -1,6 +1,18 @@
-<% provide(:title, 'Home') %>
-<div class="center jumbotron">
- <%= image_tag('logo.png') %>
-  <h1>Welcome to MY BLOG</h1>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="post_form">
+        <%= render template: "posts/new" %>
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <%= image_tag('logo.png') %>
+    <h1>Welcome to MY BLOG</h1>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
