@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
 
   root 'static_pages#home'
-  get '/', to: 'static_pages#home'
+  get '/home', to: 'static_pages#home'
   get '/help', to: 'static_pages#help'
   get '/signup', to: 'users#new'
 
