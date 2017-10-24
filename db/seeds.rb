@@ -1,3 +1,4 @@
+# ユーザー
 User.create!(name:  "yuki",
              email: "yuki@yuki.jp",
              password:              "123456",
@@ -18,6 +19,15 @@ User.create!(name:  "yuki",
              activated_at: Time.zone.now)
 end
 
+# ポスト
 5.times do |i|
   Post.create(title: "title #{i}", body: "body #{i}")
 end
+
+# リレーションシップ
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
