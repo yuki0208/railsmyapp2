@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:destroy, :edit]
 
   def index
     @posts = current_user.posts.order(created_at: 'desc')
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
-	end 
+	end
 
 	def edit
 		@post = Post.find(params[:id])
@@ -53,6 +53,6 @@ class PostsController < ApplicationController
 
     def correct_user
       @post = current_user.posts.find_by(id:params[:id])
-      redirect_to root_url if @post.nil?
+      redirect_to root_url if @post.nili?
     end
 end
