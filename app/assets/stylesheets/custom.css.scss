@@ -1,11 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* universal */
+/* mixins, variables, etc. */
 
-html {
-  overflow-y: scroll;
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
+
+/* universal */
 
 body {
   padding-top: 100px;
@@ -25,6 +31,15 @@ textarea {
   h1 {
     margin-bottom: 50px;
   }
+}
+
+.help {
+  text-align: center;
+}
+
+.help p { 
+  display: inline-block;
+  text-align: left;
 }
 
 /* typography */
@@ -75,16 +90,6 @@ p {
 }
 
 
-/* mixins, variables, etc. */
-
-$grayMediumLight: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 /* miscellaneous */
 
 .debug_dump {
@@ -98,9 +103,12 @@ $grayMediumLight: #eaeaea;
  /* sidebar */
 
 aside {
+  section.user_info {
+    margin-top: 20px;
+  }
   section {
     padding: 10px 0;
-    border-top: 1px solid $gray-lighter;
+    margin-top: 20px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -117,12 +125,6 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
-    h2 {
-      font-size: 1.0em;
-      text-align: left;
-      letter-spacing: 1px;
-      margin-top: 2px;
-    }
   }
 }
 
@@ -131,46 +133,8 @@ aside {
   margin-right: 10px;
 }
 
-  gravatar_edit {
+.gravatar_edit {
   margin-top: 15px;
-}
-
-.stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
-  a {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: block;
-  }
-}
-
-.user_avatars {
-  overflow: auto;
-  margin-top: 10px;
-  .gravatar {
-    margin: 1px 1px;
-  }
-  a {
-    padding: 0;
-  }
-}
-
-.users.follow {
-  padding: 0;
 }
 
 /* forms */
@@ -187,19 +151,19 @@ input {
   height: auto !important;
 }
 
-/* forms */
-
 #error_explanation {
-  color: #f00;
+  color: red;
   ul {
-    list-style: none;
-    margin: 0 0 18px 0;
+    color: red;
+    margin: 0 0 30px 0;
   }
 }
- 
+
 .field_with_errors {
-  @extend .form-group;
   @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
 }
 
 .checkbox {
@@ -264,6 +228,53 @@ input {
   }
 }
 
+ .gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+ .user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}
+
 aside {
   textarea {
     height: 100px;
@@ -277,3 +288,65 @@ span.picture {
     border: 0;
   }
 }
+
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+
+/* posts */
+
+.posts {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+

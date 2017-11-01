@@ -13,5 +13,6 @@ module Railsmyapp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.action_view.embed_authenticity_token_in_remote_forms = true
   end
-end
+  end
