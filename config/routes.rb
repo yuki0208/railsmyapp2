@@ -7,18 +7,18 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  resources :users
-  resources :posts
   resources :users do
     member do
       get :following, :followers
     end
   end
+  resources :posts, only: [:create, :destroy]
   resources :posts do
     resources :comments, only: [:create, :destroy]
 	end
   resources :sessions, only: [:new, :create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :relationships, only: [:create, :destroy]
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
 end
