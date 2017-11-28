@@ -1,3 +1,3 @@
 # railsmyapp2
 
-Rails Tutorialの　Sample App　を　アレンジしてつくったBLOGアプリ
+Rails Tutorial　Sample App　をアレンジして作ったBLOGアプリ
